@@ -19,7 +19,6 @@ auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 workspace_sid = os.getenv("TWILIO_WORKSPACE_SID")
 workflow_sid = os.getenv("TWILIO_WORKFLOW_SID")
 
-print(account_sid, auth_token, "HI")
 
 client = Client(account_sid, auth_token)
 
@@ -29,7 +28,7 @@ def assignment_callback():
     """Respond to assignment callbacks with an acceptance and 200 response"""
 
     ret = (
-        '{"instruction": "dequeue", "from":%s}, "post_work_activity_sid":"WA79401126500f72d0ca54cae16ec41789"}'
+        '{"instruction": "dequeue", "from":"%s, "post_work_activity_sid":"WA79401126500f72d0ca54cae16ec41789"}'
         % (os.getenv("TWILIO_CALLER_ID"))
     )  # a verified phone number from your twilio account
     resp = Response(response=ret, status=200, mimetype="application/json")
