@@ -26,9 +26,9 @@ client = Client(account_sid, auth_token)
 @app.route("/assignment_callback", methods=["GET", "POST"])
 def assignment_callback():
     """Respond to assignment callbacks with an acceptance and 200 response"""
-
+    print("HIIII")
     ret = (
-        '{"instruction": "dequeue", "from":"%s, "post_work_activity_sid":"WA79401126500f72d0ca54cae16ec41789"}'
+        '{"instruction": "dequeue", "from":"%s", "post_work_activity_sid":"WA79401126500f72d0ca54cae16ec41789"}'
         % (os.getenv("TWILIO_CALLER_ID"))
     )  # a verified phone number from your twilio account
     resp = Response(response=ret, status=200, mimetype="application/json")
